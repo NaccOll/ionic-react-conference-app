@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { hot } from 'react-hot-loader/root'
 import { PrivateRoute, RequiresTutorialRoute } from './utils/routing';
 import Account from './pages/Account';
 import Login from './pages/Login';
@@ -41,4 +42,4 @@ const App = () => (
   </Provider>
 );
 
-export default App;
+export default process.env.NODE_ENV === "development" ? hot(App) : App
